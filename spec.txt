@@ -1,0 +1,46 @@
+
+## バックグラウンドジョブ仕様
+
+http://www.dmm.com/netgame/social/-/gadgets/=/app_id=854854
+
+のページ内でのみ
+
+http://*/kcsapi/*
+
+への通信をchrome.webRequest.onCompleted.addListener でトリガーし、
+kcsapi/ 以降のエンドポイント名により以下の処理を行う
+
+1. start 
+出撃時刻を記録
+console.group に出撃時刻　と帰投時刻がある場合はピット時間　を出力
+帰投時刻をクリア
+
+2. battle と ld_airbattle
+戦闘開始時刻を記録
+console.log に戦闘開始時刻を出力
+
+3. midnight_battle
+console.log に夜戦開始時刻を出力
+
+4. battleresult 
+戦闘終了時刻を記録
+console.log に戦闘終了時刻　と戦闘開始時刻がある場合は戦闘時間　を出力
+
+5. funiture
+帰投時刻が存在しない場合
+出撃時刻がある場合は console.groupEnd
+console.log に戦闘終了時刻　と出撃時刻がある場合は出撃時間　を出力
+
+console.log の出力は適当に装飾する
+
+## POPUP画面仕様
+
+CSVコピーボタン
+
+クリックするとこれまでの記録内容をCSVでコピー
+CSVカラムが以下
+ピットイン時間（秒）,　出撃時刻（HH:MM:SS),　帰投時刻（HH:MM:SS),　出撃時間(MM:SS)
+
+コピーに成功したらボタンの下に
+「コピーしました」
+のメッセージ表示

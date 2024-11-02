@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "艦これ通信記録",
+  "version": "1.0",
+  "description": "艦これの通信時刻を記録するChrome拡張",
+  "permissions": [
+    "webRequest"
+  ],
+  "host_permissions": [
+    "http://www.dmm.com/netgame/social/-/gadgets/=/app_id=854854/",
+    "http://*/kcsapi/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
